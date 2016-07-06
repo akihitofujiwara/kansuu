@@ -1,4 +1,5 @@
 require "lambda_driver"
+require "kansuu/version"
 require "kansuu/cast"
 require "kansuu/combinator"
 require "kansuu/control"
@@ -8,7 +9,6 @@ require "kansuu/func"
 require "kansuu/num"
 require "kansuu/obj"
 require "kansuu/ord"
-
 
 module Kansuu
   include Kansuu::Cast

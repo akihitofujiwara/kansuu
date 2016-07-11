@@ -11,14 +11,19 @@ require "kansuu/obj"
 require "kansuu/ord"
 
 module Kansuu
-  include Kansuu::Cast
-  include Kansuu::Combinator
-  include Kansuu::Control
-  include Kansuu::Enum
-  include Kansuu::Eq
-  include Kansuu::Func
-  include Kansuu::Num
-  include Kansuu::Obj
-  include Kansuu::Ord
+  [
+    Kansuu::Cast,
+    Kansuu::Combinator,
+    Kansuu::Control,
+    Kansuu::Enum,
+    Kansuu::Eq,
+    Kansuu::Func,
+    Kansuu::Num,
+    Kansuu::Obj,
+    Kansuu::Ord
+  ].map &-> m {
+    include m
+    m.private_instance_methods.map &_.module_function
+  }
 end
 

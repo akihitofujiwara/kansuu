@@ -105,7 +105,7 @@ module Kansuu::Enum
   end
 
   def sum
-    fold1[Kansuu::Num.plus]
+    fold1[-> x, y { x + y }]
   end
 
   __module_functionize[]

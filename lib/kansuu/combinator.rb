@@ -19,5 +19,7 @@ module Kansuu::Combinator
   def k; const end
 
   def c; flip end
+
+  __module_functionize[]
 end
 

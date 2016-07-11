@@ -10,4 +10,6 @@ module Kansuu::Ord
     gt: [:>, 2],
     gte: [:>=, 2],
   }
+
+  __module_functionize[]
 end

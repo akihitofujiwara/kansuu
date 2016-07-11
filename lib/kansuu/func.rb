@@ -1,6 +1,9 @@
 require "lambda_driver"
+require "kansuu/util"
 
 module Kansuu::Func
+  extend Kansuu::Util
+
   def ap
     -> f, x { f[x] } % 2
   end
@@ -78,5 +81,7 @@ module Kansuu::Func
       }
     } % 3
   end
+
+  __module_functionize[]
 end
 

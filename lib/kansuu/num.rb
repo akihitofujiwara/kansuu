@@ -43,7 +43,7 @@ module Kansuu::Num
     abs2: [:abs2, 1],
     between: [:between?, 3],
   }
+
+  __module_functionize[]
 end
-
-
 

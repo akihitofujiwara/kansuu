@@ -14,4 +14,8 @@ module Kansuu::Util
   def __define_funcs_from_method
     -> hash { hash.each &-> k, v { __define_func_from_method.(k, *v) } }
   end
+
+  def __module_functionize
+    -> {instance_methods.map &_.module_function}
+  end
 end

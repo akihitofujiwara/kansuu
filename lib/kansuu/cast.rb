@@ -17,5 +17,7 @@ module Kansuu::Cast
     to_enum: [:to_enum, 1],
     to_h: [:to_h, 1],
   }
+
+  __module_functionize[]
 end
 

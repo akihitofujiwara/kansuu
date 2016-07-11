@@ -1,6 +1,9 @@
 require "lambda_driver"
+require "kansuu/util"
 
 module Kansuu::Obj
+  extend Kansuu::Util
+
   def let
     -> o, m, *args {
       o._(m)[*args]
@@ -30,5 +33,7 @@ module Kansuu::Obj
       set[k, f[get[k, o]], o]
     } % 3
   end
+
+  __module_functionize[]
 end
 

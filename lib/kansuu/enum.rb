@@ -103,5 +103,11 @@ module Kansuu::Enum
       xs.values_at *ns
     }
   end
+
+  def sum
+    fold1[Kansuu::Num.plus]
+  end
+
+  __module_functionize[]
 end
 

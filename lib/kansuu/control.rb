@@ -1,5 +1,5 @@
 require "lambda_driver"
-require "kansuu/num"
+require "kansuu/util"
 
 module Kansuu::Control
   extend Kansuu::Util

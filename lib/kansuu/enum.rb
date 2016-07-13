@@ -108,6 +108,17 @@ module Kansuu::Enum
     fold1[-> x, y { x + y }]
   end
 
+  def range
+    -> x, y { x..y } % 2
+  end
+
+  def initial
+    withl[length >> minus[1]] >>
+    app[take]
+  end
+
+  def tail; drop[1] end
+
   __module_functionize[]
 end
 

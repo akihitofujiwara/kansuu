@@ -94,14 +94,14 @@ module Kansuu::Enum
 
   def zip_with
     -> f, xs, ys {
-      xs.zip(ys).map &app[f]
+      xs.zip(ys).map &Kansuu::Func.app[f]
     } % 3
   end
 
   def pick
     -> ns, xs {
       xs.values_at *ns
-    }
+    } % 2
   end
 
   def sum
@@ -113,8 +113,8 @@ module Kansuu::Enum
   end
 
   def initial
-    withl[length >> minus[1]] >>
-    app[take]
+    Kansuu::Func.withl[Kansuu::Enum.length >> Kansuu::Num.minus[1]] >>
+      Kansuu::Func.app[Kansuu::Enum.take]
   end
 
   def tail; drop[1] end

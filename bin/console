@@ -12,3 +12,4 @@ require "kansuu"
 
 require "irb"
 IRB.start
+

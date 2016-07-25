@@ -13,7 +13,7 @@ module Kansuu::Func
   end
 
   def ap_all
-    -> fs, x { fs.map &(ap * x) } % 2
+    -> fs, x { p fs, x; fs.map &(Kansuu::Func.ap * x) } % 2
   end
 
   def ap_at
@@ -24,22 +24,22 @@ module Kansuu::Func
 
   def ap_zip
     -> fs, ys {
-      fs.zip(ys).map &app[ap]
+      fs.zip(ys).map &Kansuu::Func.app[Kansuu::Func.ap]
     } % 2
   end
 
   def ap_head
-    ap_at[0]
+    Kansuu::Func.ap_at[0]
   end
 
   def ap_last
     -> f, xs {
-      ap_at[xs.length - 1, f, xs]
-    }
+      Kansuu::Func.ap_at[xs.length - 1, f, xs]
+    } % 2
   end
 
   def dist
-    ap_all.flip % 2
+    Kansuu::Func.ap_all.flip 2
   end
 
   def withl
@@ -64,13 +64,13 @@ module Kansuu::Func
 
   def ap_arg
     -> n, f, g {
-      args >> ap_at[n, f] >> app[g]
+      Kansuu::Func.args >> Kansuu::Func.ap_at[n, f] >> Kansuu::Func.app[g]
     } % 3
   end
 
   def ap_find
     -> f, g, xs {
-      ap_at[find_index[f, xs], g, xs]
+      Kansuu::Func.ap_at[Kansuu::Enum.find_index[f, xs], g, xs]
     } % 3
   end
 

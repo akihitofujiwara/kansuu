@@ -14,13 +14,7 @@ module Kansuu::Obj
 
   def disp
     -> m, *args, o {
-      let o, m, *args
-    } % 3
-  end
-
-  def disp
-    -> m, *args, o {
-      o._(m)[*args]
+      Kansuu::Obj.let[o, m, *args]
     } % 3
   end
 
@@ -38,7 +32,7 @@ module Kansuu::Obj
 
   def set_ap
     -> k, f, o {
-      set[k, f[get[k, o]], o]
+      Kansuu::Obj.set[k, f[Kansuu::Obj.get[k, o]], o]
     } % 3
   end
 

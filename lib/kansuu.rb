@@ -1,6 +1,5 @@
 require "lambda_driver"
 require "kansuu/version"
-require "kansuu/cast"
 require "kansuu/combinator"
 require "kansuu/control"
 require "kansuu/enum"
@@ -14,7 +13,6 @@ require "kansuu/ord"
 
 module Kansuu
   [
-    Kansuu::Cast,
     Kansuu::Combinator,
     Kansuu::Control,
     Kansuu::Enum,
@@ -29,5 +27,11 @@ module Kansuu
     include m
     m.private_instance_methods.map &_.module_function
   }
+
+  refine Object do
+    Kansuu.private_instance_methods.map &-> m {
+      define_method m, (Kansuu.instance_method m)
+    }
+  end
 end
 

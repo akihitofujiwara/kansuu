@@ -38,7 +38,7 @@ module Kansuu::Func
     }
   end
 
-  def dest
+  def dist
     ap_all.flip % 2
   end
 

@@ -6,7 +6,15 @@ module Kansuu::Obj
 
   def let
     -> o, m, *args {
-      o._(m)[*args]
+      args.last.instance_of?(Proc) ?
+        o.send(m, *(args.take(args.length - 1)), &(args.last))
+      : o._(m)[*args]
+    } % 3
+  end
+
+  def disp
+    -> m, *args, o {
+      let o, m, *args
     } % 3
   end
 
